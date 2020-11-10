@@ -31,8 +31,7 @@ class home extends Component {
     // }
     let mostRecentScreams = !loading ? (
       // do i need to parse?
-      // posts.map((post) => <Post key={post.postId} post={post} />)
-      posts.forEach((post) => <Post key={post.postId} post={post} />)
+      posts.map((post) => <Post key={post.postId} post={post} />)
     ) : (
       <p>LOADING...</p>
     );
