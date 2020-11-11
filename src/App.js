@@ -28,7 +28,7 @@ import axios from "axios";
 
 // CORS
 axios.defaults.baseURL = "https://us-central1-social-scourge.cloudfunctions.net/api";
-let useless;
+let useless = false;
 const theme = createMuiTheme({ themeFile });
 // delete this line lol
 let authenticated;
