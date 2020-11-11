@@ -18,7 +18,7 @@ export const loginUser = (userData, history) => (dispatch) => {
   axios
     .post("/signin", userData)
     .then((res) => {
-      console.log(res.data.token);
+      // console.log(res.data.token);
       setAuthorizationHeader(res.data.token);
       dispatch(getUserData());
       dispatch({
