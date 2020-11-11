@@ -22,12 +22,13 @@ class home extends Component {
   componentDidMount() {
     this.props.getAllPosts();
   }
-
   render() {
     const { posts, loading } = this.props.data;
 
     let mostRecentScreams = !loading ? (
-      posts.map((post) => <Post key={post.postId} post={post} />)
+    posts.map((post) => {
+      console.log(post);
+      <Post key={post.postId} post={post} />})
     ) : (
       <p>LOADING...</p>
     );
