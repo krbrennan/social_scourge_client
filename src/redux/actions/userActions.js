@@ -1,5 +1,9 @@
 import axios from "axios";
 
+// cors
+import * as cors from 'cors';
+const corsHandler = cors({origin:true});
+
 import {
   SET_USER,
   SET_ERRORS,
@@ -15,7 +19,8 @@ export const loginUser = (userData, history) => (dispatch) => {
   });
   // console.log(userData);
   // send req to server and show errors, if successful then show errors
-  axios
+  return corsHandler(req, res => {
+    axios
     // .post("/signin", userData)
     .post("https://us-central1-social-scourge.cloudfunctions.net/api/signin", userData, {
       headers: {
@@ -38,6 +43,8 @@ export const loginUser = (userData, history) => (dispatch) => {
       //   payload: err.response.data,
       // });
     });
+  })
+  
 };
 
 export const getUserData = () => (dispatch) => {
