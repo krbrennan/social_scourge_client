@@ -30,7 +30,7 @@ import axios from "axios";
 axios.defaults.baseURL = "https://us-central1-social-scourge.cloudfunctions.net/api";
 
 const theme = createMuiTheme({ themeFile });
-
+// delete this line lol
 let authenticated;
 const token = localStorage.FBIdToken;
 if (token) {
