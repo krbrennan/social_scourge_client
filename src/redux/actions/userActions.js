@@ -19,14 +19,10 @@ export const loginUser = (userData, history) => (dispatch) => {
   });
   // console.log(userData);
   // send req to server and show errors, if successful then show errors
-  return corsHandler(req, res => {
     axios
     // .post("/signin", userData)
-    .post("https://us-central1-social-scourge.cloudfunctions.net/api/signin", userData, {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      } 
-    })
+    .post("https://us-central1-social-scourge.cloudfunctions.net/api/signin", userData, 
+    )
     .then((res) => {
       // console.log(res.data.token);
       setAuthorizationHeader(res.data.token);
@@ -43,9 +39,7 @@ export const loginUser = (userData, history) => (dispatch) => {
       //   payload: err.response.data,
       // });
     });
-  })
-  
-};
+  };
 
 export const getUserData = () => (dispatch) => {
   dispatch({ type: LOADING_USER });

@@ -26,6 +26,9 @@ import axios from "axios";
 // import { withStyles } from '@material-ui/styles';
 // import PropTypes from 'prop-types';
 
+// CORS
+axios.defaults.baseURL = "https://us-central1-social-scourge.cloudfunctions.net/api";
+
 const theme = createMuiTheme({ themeFile });
 
 let authenticated;
