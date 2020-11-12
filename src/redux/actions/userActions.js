@@ -16,7 +16,7 @@ export const loginUser = (userData, history) => (dispatch) => {
   // console.log(userData);
   // send req to server and show errors, if successful then show errors
   axios
-    .post("/signin", userData)
+    .post("https://us-central1-social-scourge.cloudfunctions.net/api/signin", userData)
     .then((res) => {
       // console.log(res.data.token);
       setAuthorizationHeader(res.data.token);
@@ -38,7 +38,7 @@ export const loginUser = (userData, history) => (dispatch) => {
 export const getUserData = () => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios
-    .get("/user")
+    .get("https://us-central1-social-scourge.cloudfunctions.net/api/user")
     .then((res) => {
       dispatch({
         type: SET_USER,
@@ -56,7 +56,7 @@ export const signupUser = (newUserData, history) => (dispatch) => {
   });
   // send req to server and show errors, if successful then show errors
   axios
-    .post("/signup", newUserData)
+    .post("https://us-central1-social-scourge.cloudfunctions.net/api/signup", newUserData)
     .then((res) => {
       setAuthorizationHeader(res.data.token);
       dispatch(getUserData());
@@ -84,7 +84,7 @@ export const logoutUser = () => (dispatch) => {
 export const uploadImage = (formData) => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios
-    .post("/user/photo", formData)
+    .post("https://us-central1-social-scourge.cloudfunctions.net/api/user/photo", formData)
     .then((res) => {
       dispatch(getUserData());
     })
@@ -94,7 +94,7 @@ export const uploadImage = (formData) => (dispatch) => {
 export const editProfile = (userDetails) => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios
-    .post("/user", userDetails)
+    .post("https://us-central1-social-scourge.cloudfunctions.net/api/user", userDetails)
     .then(() => {
       dispatch(getUserData());
     })

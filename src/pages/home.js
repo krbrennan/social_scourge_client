@@ -26,9 +26,11 @@ class home extends Component {
     const { posts, loading } = this.props.data;
 
     let mostRecentScreams = !loading ? (
+      // posts.forEach((post) => {
+      //   console.log(post)
+      // })
     posts.map((post) => {
-      console.log(post);
-      <Post key={post.postId} post={post} />})
+      return <Post key={post.postId} post={post} />})
     ) : (
       <p>LOADING...</p>
     );
